@@ -1,38 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <title>Mi primera pagina</title>
-</head>
-<body>
-    <h1>Escuela {{escuela}}</h1>
-        <h2>{{nom}}</h2>
-    {% for nom in alumnos %}
-        <h3>{{nom}}</h3>
-    {% endfor %}
 
-    <table>
-        <tr>
-            <td>
-                <td>Dato1</td>
-                <td>Dato2</td>
-                <td>Dato3</td>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <td>Dato1</td>
-                <td>Dato2</td>
-                <td>Dato3</td>
-            </td>
-        </tr>
-    </table>
-    {%block content%}
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+    body {
+        padding-top: 60px;
+      }
+      
+      .tr-head {
+        background: #dff0d8;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <a href='brand'>
+                IDGS-803
+            </a>
+            <ul class="nav">
+                <li class="active">
+                    <a href=""><i class="icon-home icon-white"></i>
+                    Inicio
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <li class="icon-user icon-white"></li>
+                        Usuarios
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <li class="icon-user icon-white"></li>
+                        Alumnos
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="container">
         
-    {%endblock%}
+    <h1>Escuela {{ escuela }}</h1>
 
-</body>
+        {% block content %}
+
+        {% endblock %}
+  </body>
 </html>

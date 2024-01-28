@@ -1,0 +1,22 @@
+{%extends 'layout.html'%}
+
+{%block content%}
+
+<form action="/resultado" method="POST">
+    <input type="radio" name="rdOperacion" id="rdMult" value="Mult" >
+    <input type="radio" name="rdOperacion" id="rdSum" value="huey" >
+    <input type="radio" name="rdOperacion" id="rdDiv" value="huey" >
+    <input type="radio" name="rdOperacion" id="rdRes" value="huey" >    
+    <label>N1:</label>
+    <input type="text"name="n1"/><br> 
+    <label>N2:</label>
+    <input type="text"name="n2"/><br>
+    <input type="submit"/>
+    </form> 
+
+    <script>
+        </script>
+
+
+
+{%endblock%}
