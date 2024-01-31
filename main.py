@@ -1,5 +1,5 @@
-from flask import Flask, render_template
-
+from flask import Flask, render_template, request
+import forms
 app = Flask(__name__)
 
 
@@ -9,9 +9,21 @@ def index():
     alumnos = ["Mario", "Pedro", "Luis", "David"]
     return render_template("index.html" , escuela = escuela, alumnos = alumnos)
 
-@app.route("/alumnos")
+@app.route("/alumnos",methods=["GET","POST"])
 def alum():
-    return render_template("alumnos.html")
+    alum_form = forms.UsersForm(request.form)
+    if request.method=='POST':
+        nom=alum_form.nombre.data
+        apa=alum_form.apaterno.data
+        ama=alum_form.amaterno.data
+        edad=alum_form.edad.data
+        correo=alum_form.correo.data
+        print("Nombre: {}".format(nom))
+        print("apaterno: {}".format(apa))
+        print("amaterno: {}".format(ama))
+
+        
+    return render_template("alumnos.html", form=alum_form, nom=nom, apa=apa, ama=ama)
 
 @app.route("/maestros")
 def maes():
@@ -42,6 +54,39 @@ def suma(n1, n2):
 def funcion(ab="UTL"):
     return "El valor es " + ab
 
+@app.route("/multiplicar",methods=["GET","POST"])
+def mult():
+    if request.method=="POST":
+        num1=request.form.get("n1")
+        num2=request.form.get("n2")
+        return "<h1> la multiplicación es  {}</h1>".format(str(int(num1)*int(num2)))
+    else :
+        return '''
+        <form action="/multiplicar" method="POST">
+        <label>N1:</label>
+        <input type="text"name="n1"/><br> 
+        <label>N2:</label>
+        <input type="text"name="n2"/><br>
+        <input type="submit"/>
+        </form> 
+    '''
+
+
+@app.route("/formulario1")
+def formulario():
+    return render_template("formulario1.html")
+
+@app.route("/resultado",methods=["GET","POST"])
+def resultado():
+    if request.method=="POST":
+        num1=request.form.get("n1")
+        num2=request.form.get("n2")
+        return "<h1> la multiplicación es  {}</h1>".format(str(int(num1)*int(num2)))
+    
+
+@app.route("/formulario2")
+def formulario2():
+    return render_template("formulario2.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
