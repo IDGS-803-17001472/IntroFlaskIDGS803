@@ -3,17 +3,16 @@
 {%block content%}
 {% import "_macros.html" as macros %}
 <h1>Alumnos</h1>
-<form action="" method="post">
-{{macros.render_field(form.nombre, class="form-control")}}
+
+<form action="" method="post" novalidate>
+{{macros.render_field(form.nombre, class="form-controls")}}
 {{macros.render_field(form.apaterno)}}
 {{macros.render_field(form.amaterno)}}
 {{macros.render_field(form.edad)}}
-{{macros.render_field(form.correo)}}
-<input type="submit" value="registrar" name="btn1">
+{{macros.render_field(form.email)}}
+<input type="submit" name="btn1" value="registrar">
 </form>
 
-<h1>Nombre : {{nom}}</h1>
-
-
+<h1>Nombre: {{nombre}}</h1>
 
 {%endblock%}

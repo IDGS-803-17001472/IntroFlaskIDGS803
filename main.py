@@ -9,21 +9,21 @@ def index():
     alumnos = ["Mario", "Pedro", "Luis", "David"]
     return render_template("index.html" , escuela = escuela, alumnos = alumnos)
 
-@app.route("/alumnos",methods=["GET","POST"])
+@app.route("/alumnos", methods = ["GET","POST"])
 def alum():
-    alum_form = forms.UsersForm(request.form)
-    if request.method=='POST':
-        nom=alum_form.nombre.data
-        apa=alum_form.apaterno.data
-        ama=alum_form.amaterno.data
-        edad=alum_form.edad.data
-        correo=alum_form.correo.data
+    nom=''
+    apa=''
+    ama=''
+    alum_form = forms.UserForm(request.form)
+    if request.method == "POST" and alum_form.validate():
+        nom = alum_form.nombre.data
+        apa = alum_form.apaterno.data
+        ama = alum_form.amaterno.data
         print("Nombre: {}".format(nom))
-        print("apaterno: {}".format(apa))
-        print("amaterno: {}".format(ama))
-
-        
-    return render_template("alumnos.html", form=alum_form, nom=nom, apa=apa, ama=ama)
+        print("ApellidoPa: {}".format(apa))
+        print("ApellidoMa: {}".format(ama))
+    
+    return render_template("alumnos.html", form = alum_form, nombre = nom, apePa = apa, apeMa = ama)
 
 @app.route("/maestros")
 def maes():
