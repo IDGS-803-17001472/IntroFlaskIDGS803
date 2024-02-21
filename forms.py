@@ -21,3 +21,18 @@ class UserForm(Form):
     email = EmailField('email',[
         validators.Email(message='Ingrese un correo válido')
     ])
+
+class DicRegistroForm(Form):
+    txtPalaIngles=StringField('txtPalaIngles',[
+        validators.DataRequired(message='el campo es requerido')
+    ])
+    txtPalaEsp=StringField('txtPalaEsp',[
+        validators.DataRequired(message='el campo es requerido')
+    ])
+class DicTraerPalabra(Form):
+    txtPalaIngles=StringField('txtPalaIngles',[
+        validators.DataRequired(message='el campo es requerido')
+    ])
+    txtPalaEsp=StringField('txtPalaEsp',[
+        validators.DataRequired(message='el campo es requerido')
+    ])
